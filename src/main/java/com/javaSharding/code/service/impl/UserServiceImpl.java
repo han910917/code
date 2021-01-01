@@ -1,22 +1,14 @@
 package com.javaSharding.code.service.impl;
 
-import com.alibaba.fastjson.JSONObject;
-import com.weixin.demo.common.bean.WxMappingJackson2HttpMessageConverter;
-import com.weixin.demo.domain.dto.LoginInfoDTO;
-import com.weixin.demo.domain.dto.WeiXinIdDTO;
-import com.weixin.demo.domain.entity.User;
-import com.weixin.demo.repository.UserRepository;
-import com.weixin.demo.service.UserService;
+import com.javaSharding.code.common.bean.WxMappingJackson2HttpMessageConverter;
+import com.javaSharding.code.domain.dto.LoginInfoDTO;
+import com.javaSharding.code.domain.dto.WeiXinIdDTO;
+import com.javaSharding.code.domain.entity.User;
+import com.javaSharding.code.repository.UserRepository;
+import com.javaSharding.code.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.http.MediaType;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @Author hgm
@@ -25,18 +17,10 @@ import java.util.List;
  * @Version 1.0
  */
 @Service
-public class UserServiceImpl implements UserService{
-
-    @Autowired
-    private UserRepository userRepository;
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private RestTemplate restTemplate;
-
-    @Override
-    public User selectUser(String username) {
-        return userRepository.findByusername(username);
-    }
 
     @Override
     public void saveUserLoginInfo(LoginInfoDTO loginInfoDTO) {

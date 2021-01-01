@@ -1,7 +1,7 @@
 package com.javaSharding.code.service;
 
-import com.weixin.demo.domain.dto.LoginInfoDTO;
-import com.weixin.demo.domain.entity.User;
+import com.javaSharding.code.domain.dto.LoginInfoDTO;
+import com.javaSharding.code.domain.entity.User;
 
 /**
  * @Author hgm
@@ -10,7 +10,6 @@ import com.weixin.demo.domain.entity.User;
  * @Version 1.0
  */
 public interface UserService {
-    public User selectUser(String username);
 
     /**
      * @description: 保存用户登录信息

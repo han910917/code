@@ -1,7 +1,7 @@
 package com.javaSharding.code.controller;
 
-import com.weixin.demo.domain.dto.LoginInfoDTO;
-import com.weixin.demo.service.UserService;
+import com.javaSharding.code.domain.dto.LoginInfoDTO;
+import com.javaSharding.code.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,11 +16,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
-    @RequestMapping("/login")
-    public boolean login(@RequestBody LoginInfoDTO loginInfoDTO){
-        return true;
-    }
 
     /**
     * @description: 保存用户登录信息
