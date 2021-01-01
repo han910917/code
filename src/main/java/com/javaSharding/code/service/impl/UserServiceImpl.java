@@ -6,6 +6,7 @@ import com.javaSharding.code.domain.dto.WeiXinIdDTO;
 import com.javaSharding.code.domain.entity.User;
 import com.javaSharding.code.repository.UserRepository;
 import com.javaSharding.code.service.UserService;
+import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -20,7 +21,13 @@ import org.springframework.web.client.RestTemplate;
 public class UserServiceImpl implements UserService {
 
     @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
     private RestTemplate restTemplate;
+
+    @Autowired
+    protected Mapper dozerMapper;
 
     @Override
     public void saveUserLoginInfo(LoginInfoDTO loginInfoDTO) {
@@ -31,7 +38,16 @@ public class UserServiceImpl implements UserService {
 
         String openid = obj.getOpenid();
 
-        loginInfoDTO.setOpenId(openid);
+        User user = userRepository.findByopenid(openid);
 
+        // 新用户进行保存
+       if(null == user){
+           loginInfoDTO.setOpenid(openid);
+
+           User save = dozerMapper.map(loginInfoDTO, User.class);
+
+           save = userRepository.save(save);
+           System.out.println(save.toString());
+       }
     }
 }

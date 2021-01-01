@@ -19,7 +19,7 @@ public class LoginInfoDTO {
 
     private String code;
 
-    private String nickName;
+    private String nickname;
 
     private String city;
 
@@ -29,9 +29,9 @@ public class LoginInfoDTO {
 
     private String language;
 
-    private String avatarUrl;
+    private String avatarurl;
 
     private Integer gender;
 
-    private String openId;
+    private String openid;
 }

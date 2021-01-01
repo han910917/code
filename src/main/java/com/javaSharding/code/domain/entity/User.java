@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @Author hgm
@@ -25,14 +22,15 @@ import javax.persistence.Table;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
     @Column(name = "code")
     private String code;
 
-    @Column(name = "nickName")
-    private String nickName;
+    @Column(name = "nickname")
+    private String nickname;
 
     @Column(name = "city")
     private String city;
@@ -46,12 +44,12 @@ public class User {
     @Column(name = "language")
     private String language;
 
-    @Column(name = "avatarUrl")
-    private String avatarUrl;
+    @Column(name = "avatarurl")
+    private String avatarurl;
 
     @Column(name = "gender")
     private Integer gender;
 
-    @Column(name = "openId")
-    private String openId;
+    @Column(name = "openid")
+    private String openid;
 }
